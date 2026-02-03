@@ -10,6 +10,9 @@
 			<li>
 				<NuxtLink :to="{ name: 'table-csr' }">CSR</NuxtLink>
 			</li>
+			<li>
+				<NuxtLink :to="{ name: 'table-ssg' }">SSG</NuxtLink>
+			</li>
 		</ul>
 	</nav>
 </template>

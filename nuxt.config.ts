@@ -6,6 +6,7 @@ export default defineNuxtConfig({
 	routeRules: {
 		"/table/csr": { ssr: false },
 		"/table/ssr": { ssr: true },
+		"/table/ssg": { prerender: true },
 	},
 	compatibilityDate: "2025-07-15",
 	eslint: {
