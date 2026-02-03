@@ -7,6 +7,7 @@ export default defineNuxtConfig({
 		"/table/csr": { ssr: false },
 		"/table/ssr": { ssr: true },
 		"/table/ssg": { prerender: true },
+		"/table/isr": { isr: 10 },
 	},
 	compatibilityDate: "2025-07-15",
 	eslint: {
