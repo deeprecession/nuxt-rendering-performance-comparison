@@ -5,7 +5,10 @@
 		</ul>
 		<ul>
 			<li>
-				<NuxtLink :to="{ name: 'table' }">Table</NuxtLink>
+				<NuxtLink :to="{ name: 'table-ssr' }">SSR</NuxtLink>
+			</li>
+			<li>
+				<NuxtLink :to="{ name: 'table-csr' }">CSR</NuxtLink>
 			</li>
 		</ul>
 	</nav>

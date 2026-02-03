@@ -37,5 +37,9 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+	name: "table-csr",
+});
+
 const { data: tableData, error, status } = await useFetch("/api/table", { lazy: true });
 </script>
