@@ -7,7 +7,6 @@
 		{{ error }}
 	</article>
 	<article v-else>
-		<h1>{{ tableData?.name }}</h1>
 		<table>
 			<thead>
 				<tr>
