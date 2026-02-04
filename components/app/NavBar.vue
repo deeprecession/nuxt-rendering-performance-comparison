@@ -13,6 +13,9 @@
 			<li>
 				<NuxtLink :to="{ name: 'table-ssg' }">SSG</NuxtLink>
 			</li>
+			<li>
+				<NuxtLink :to="{ name: 'table-isr' }">ISR</NuxtLink>
+			</li>
 		</ul>
 	</nav>
 </template>

@@ -9,7 +9,7 @@
 import Table from "~/components/app/Table.vue";
 
 definePageMeta({
-	name: "table-isg",
+	name: "table-isr",
 });
 
 const route = useRoute();
