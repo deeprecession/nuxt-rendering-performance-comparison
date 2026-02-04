@@ -36,5 +36,13 @@
 </template>
 
 <script lang="ts" setup>
-const { data: tableData, error, status } = await useFetch("/api/table", { lazy: true });
+const props = defineProps<{
+	rowsNum?: number;
+}>();
+
+const tableParams = {
+	rowsNum: props.rowsNum,
+};
+
+const { data: tableData, error, status } = await useFetch("/api/table", { lazy: true, query: tableParams });
 </script>
