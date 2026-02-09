@@ -6,8 +6,11 @@
 	<article v-else-if="status ==='error'">
 		{{ error }}
 	</article>
-	<article v-else>
-		<table>
+	<article
+		v-else
+		class="overflow-auto"
+	>
+		<table class="table">
 			<thead>
 				<tr>
 					<th

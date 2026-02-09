@@ -1,5 +1,5 @@
 <template>
-	<nav class="container">
+	<nav>
 		<ul>
 			<li><strong>Table App</strong></li>
 		</ul>
