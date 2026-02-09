@@ -1,16 +1,18 @@
 <template>
 	<article
-		v-if="status ==='pending'"
-		aria-busy="true"
-	/>
-	<article v-else-if="status ==='error'">
-		{{ error }}
-	</article>
-	<article
-		v-else
 		class="overflow-auto"
 	>
-		<table class="table">
+		<div
+			v-if="status ==='pending'"
+			aria-busy="true"
+		/>
+		<template v-else-if="status ==='error'">
+			{{ error }}
+		</template>
+		<table
+			v-else
+			class="table"
+		>
 			<thead>
 				<tr>
 					<th
