@@ -5,10 +5,15 @@ export default defineNuxtConfig({
 	css: ["@picocss/pico"],
 
 	routeRules: {
-		"/csr": { ssr: false },
-		"/ssr": { ssr: true },
-		"/ssg": { prerender: true },
-		"/isr": { isr: 10 },
+		"/table/csr": { ssr: false },
+		"/table/ssr": { ssr: true },
+		"/table/ssg": { prerender: true },
+		"/table/isr": { isr: 10 },
+
+		"/lcp/csr": { ssr: false },
+		"/lcp/ssr": { ssr: true },
+		"/lcp/ssg": { prerender: true },
+		"/lcp/isr": { isr: 10 },
 	},
 
 	sourcemap: {
