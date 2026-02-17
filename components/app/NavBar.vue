@@ -2,10 +2,16 @@
 	<nav>
 		<ul>
 			<li>
-				<NuxtLink :to="{ name: 'lcp' }">Largest Contentful Pain (LCP)</NuxtLink>
+				<NuxtLink
+					:class="{ 'nav-link--active': isCategoryActive('lcp') }"
+					:to="{ name: 'lcp' }"
+				>Largest Contentful Pain (LCP)</NuxtLink>
 			</li>
 			<li>
-				<NuxtLink :to="{ name: 'table' }">Table</NuxtLink>
+				<NuxtLink
+					:class="{ 'nav-link--active': isCategoryActive('table') }"
+					:to="{ name: 'table' }"
+				>Table</NuxtLink>
 			</li>
 		</ul>
 		<ul v-if="selectedCategory">
@@ -14,6 +20,7 @@
 				:key="mode"
 			>
 				<NuxtLink
+					:class="{ 'nav-link--active': isModeActive(mode) }"
 					:to="{ name: `${selectedCategory}-${mode}` }"
 				>
 					{{ mode.toUpperCase() }}
@@ -40,4 +47,18 @@ const selectedCategory = computed(() => {
 	if (name.startsWith("table")) return "table";
 	return null;
 });
+
+const isCategoryActive = (category: string) => {
+	return routeName.value.startsWith(category);
+};
+
+const isModeActive = (mode: string) => {
+	return routeName.value.endsWith(`-${mode}`);
+};
 </script>
+
+<style lang="css" scoped>
+.nav-link--active {
+	text-decoration: underline;
+}
+</style>
