@@ -1,6 +1,7 @@
 <template>
-	<img
-		src="/public/panda.jpg"
-		alt="main image"
-	>
+	<Gallery />
 </template>
+
+<script setup lang="ts">
+import Gallery from "~/components/app/Gallery.vue";
+</script>
