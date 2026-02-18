@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "unlighthouse": "unlighthouse"
+    "unlighthouse:local": "unlighthouse",
+    "unlighthouse:prod": "NODE_ENV=PROD unlighthouse"
   },
   "dependencies": {
     "@nuxt/eslint": "1.12.1",
@@ -32,4 +33,3 @@
     "unlighthouse": "^0.17.4"
   }
 }
-
