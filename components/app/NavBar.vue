@@ -5,7 +5,7 @@
 				<NuxtLink
 					:class="{ 'nav-link--active': isCategoryActive('lcp') }"
 					:to="{ name: 'lcp' }"
-				>Largest Contentful Pain (LCP)</NuxtLink>
+				>Largest Contentful Paint (LCP)</NuxtLink>
 			</li>
 			<li>
 				<NuxtLink
