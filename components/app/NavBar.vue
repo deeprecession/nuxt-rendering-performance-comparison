@@ -9,6 +9,12 @@
 			</li>
 			<li>
 				<NuxtLink
+					:class="{ 'nav-link--active': isCategoryActive('tti') }"
+					:to="{ name: 'tti' }"
+				>Time To Interactive (TTI)</NuxtLink>
+			</li>
+			<li>
+				<NuxtLink
 					:class="{ 'nav-link--active': isCategoryActive('table') }"
 					:to="{ name: 'table' }"
 				>Table</NuxtLink>
@@ -44,6 +50,7 @@ const routeName = computed(() => {
 const selectedCategory = computed(() => {
 	const name = routeName.value;
 	if (name.startsWith("lcp")) return "lcp";
+	if (name.startsWith("tti")) return "tti";
 	if (name.startsWith("table")) return "table";
 	return null;
 });

@@ -14,6 +14,11 @@ export default defineNuxtConfig({
 		"/lcp/ssr": { ssr: true },
 		"/lcp/ssg": { prerender: true },
 		"/lcp/isr": { isr: 10 },
+
+		"/tti/csr": { ssr: false },
+		"/tti/ssr": { ssr: true },
+		"/tti/ssg": { prerender: true },
+		"/tti/isr": { isr: 10 },
 	},
 
 	sourcemap: {
