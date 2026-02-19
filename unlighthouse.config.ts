@@ -18,7 +18,7 @@ export default defineUnlighthouseConfig({
 
 			"/lcp",
 
-			"/tti",
+			"/tbt",
 		],
 		...(INCLUDE_PATHS.length > 0 && {
 			include: INCLUDE_PATHS,
