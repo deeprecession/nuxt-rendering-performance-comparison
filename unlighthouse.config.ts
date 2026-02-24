@@ -12,13 +12,6 @@ export default defineUnlighthouseConfig({
 		samples: 10,
 		exclude: [
 			"/",
-
-			"/table",
-			"/table/*",
-
-			"/lcp",
-
-			"/tbt",
 		],
 		...(INCLUDE_PATHS.length > 0 && {
 			include: INCLUDE_PATHS,

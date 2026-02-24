@@ -13,12 +13,6 @@
 					:to="{ name: 'tbt' }"
 				>Total Blocking Time (TBT)</NuxtLink>
 			</li>
-			<li>
-				<NuxtLink
-					:class="{ 'nav-link--active': isCategoryActive('table') }"
-					:to="{ name: 'table' }"
-				>Table</NuxtLink>
-			</li>
 		</ul>
 		<ul v-if="selectedCategory">
 			<li
@@ -51,7 +45,6 @@ const selectedCategory = computed(() => {
 	const name = routeName.value;
 	if (name.startsWith("lcp")) return "lcp";
 	if (name.startsWith("tbt")) return "tbt";
-	if (name.startsWith("table")) return "table";
 	return null;
 });
 
