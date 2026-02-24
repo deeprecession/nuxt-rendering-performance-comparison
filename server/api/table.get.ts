@@ -1,7 +1,8 @@
 export default defineEventHandler(async (event) => {
-	await new Promise(resolve => setTimeout(resolve, 2000));
-
 	const query = getQuery(event);
+
+	await new Promise(resolve => setTimeout(resolve, Number(query.delay) || 2000));
+
 	const tableRowsNumberQuery = Math.max(0, Number(query.rowsNum) || 10);
 
 	const columns = [
