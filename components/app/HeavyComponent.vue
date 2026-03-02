@@ -1,54 +1,39 @@
 <template>
-	<article
-		class="overflow-auto"
-	>
-		<div
-			v-if="status ==='pending'"
-			aria-busy="true"
-		/>
-		<template v-else-if="status ==='error'">
-			{{ error }}
-		</template>
-		<table
-			v-else
-			class="table"
-		>
-			<thead>
-				<tr>
-					<th
-						v-for="column in tableData?.columns"
-						:key="column"
-					>
-						{{ column }}
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr
-					v-for="row in tableData?.rows"
-					:key="row.join(',')"
-				>
-					<td
-						v-for="cell in row"
-						:key="cell"
-					>
-						{{ cell }}
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</article>
+	<div>
+		<p>This page blocks during hydration.</p>
+
+		<p v-if="!message">
+			rendering content
+		</p>
+
+		<p>{{ message }}</p>
+	</div>
 </template>
 
-<script lang="ts" setup>
-const props = withDefaults(defineProps<{
-	rowsNum?: number;
-}>(), { rowsNum: 100 });
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
 
-const tableParams = {
-	rowsNum: props.rowsNum,
-	delay: 200,
-};
+const props = withDefaults(defineProps<{ blockingTimeMs?: number }>(), { blockingTimeMs: 3000 });
 
-const { data: tableData, error, status } = await useFetch("/api/table", { lazy: true, query: tableParams });
+const message = ref("");
+
+if (import.meta.client) {
+	const start = performance.now();
+	while (performance.now() - start < props.blockingTimeMs) {
+		// block during hydration
+	}
+
+	message.value = "content is rendered";
+}
+else {
+	onMounted(() => {
+		const start = performance.now();
+
+		while (performance.now() - start < props.blockingTimeMs) {
+			// simulate heavy hydration logic
+		}
+
+		message.value = "content is rendered";
+	});
+}
 </script>
