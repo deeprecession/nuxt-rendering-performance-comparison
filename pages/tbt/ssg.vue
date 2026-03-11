@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HeavyComponent from "~/components/app/HeavyComponent.vue";
+import HeavyComponentServer from "~/components/app/HeavyComponentServer.vue";
 </script>
 
 <template>
-	<HeavyComponent />
+	<HeavyComponentServer />
 </template>

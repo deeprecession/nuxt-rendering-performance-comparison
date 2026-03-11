@@ -2,11 +2,12 @@
 	<div>
 		<p>This page blocks during hydration.</p>
 
-		<p v-if="!message">
+		<p v-if="!messageServer">
 			rendering content
 		</p>
-
-		<p>{{ message }}</p>
+		<p v-else>
+			{{ messageServer }}
+		</p>
 	</div>
 </template>
 
@@ -15,25 +16,15 @@ import { ref, onMounted } from "vue";
 
 const props = withDefaults(defineProps<{ blockingTimeMs?: number }>(), { blockingTimeMs: 3000 });
 
-const message = ref("");
+const messageServer = ref("");
 
-if (import.meta.client) {
+onMounted(() => {
 	const start = performance.now();
+
 	while (performance.now() - start < props.blockingTimeMs) {
-		// block during hydration
+		Math.sqrt(Math.random() * 1000);
 	}
 
-	message.value = "content is rendered";
-}
-else {
-	onMounted(() => {
-		const start = performance.now();
-
-		while (performance.now() - start < props.blockingTimeMs) {
-			// simulate heavy hydration logic
-		}
-
-		message.value = "content is rendered";
-	});
-}
+	messageServer.value = "content rendered after hydration";
+});
 </script>
