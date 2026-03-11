@@ -10,6 +10,8 @@ export default defineUnlighthouseConfig({
 	site: SITE_URL,
 	scanner: {
 		samples: 10,
+		throttle: true,
+		dynamicSampling: false,
 		exclude: [
 			"/",
 		],
