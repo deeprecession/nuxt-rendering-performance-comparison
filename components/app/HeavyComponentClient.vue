@@ -13,15 +13,12 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { heavyComputation, type HeavyComputationOptions } from "~/utils/heavyComputation";
 
-const props = withDefaults(defineProps<{ blockingTimeMs?: number }>(), { blockingTimeMs: 3000 });
+const props = defineProps<{ computation?: HeavyComputationOptions }>();
 
 const messageClient = ref("");
 
-const start = performance.now();
-while (performance.now() - start < props.blockingTimeMs) {
-	Math.sqrt(Math.random() * 1000);
-}
-
+heavyComputation(props.computation);
 messageClient.value = "content is rendered on the client";
 </script>

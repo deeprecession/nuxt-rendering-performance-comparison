@@ -13,18 +13,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { heavyComputation, type HeavyComputationOptions } from "~/utils/heavyComputation";
 
-const props = withDefaults(defineProps<{ blockingTimeMs?: number }>(), { blockingTimeMs: 3000 });
+const props = defineProps<{ computation?: HeavyComputationOptions }>();
 
 const messageServer = ref("");
 
 onMounted(() => {
-	const start = performance.now();
-
-	while (performance.now() - start < props.blockingTimeMs) {
-		Math.sqrt(Math.random() * 1000);
-	}
-
+	heavyComputation(props.computation);
 	messageServer.value = "content rendered after hydration";
 });
 </script>
