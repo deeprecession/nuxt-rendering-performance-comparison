@@ -22,4 +22,7 @@ export default defineUnlighthouseConfig({
 	lighthouseOptions: {
 		onlyCategories: ["performance"],
 	},
+	puppeteerOptions: {
+		executablePath: "/usr/bin/brave",
+	},
 });
