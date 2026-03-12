@@ -22,6 +22,7 @@ export default defineUnlighthouseConfig({
 	},
 	lighthouseOptions: {
 		onlyCategories: ["performance"],
+		throttlingMethod: "devtools",
 	},
 	puppeteerOptions: {
 		executablePath: "/usr/bin/brave",
