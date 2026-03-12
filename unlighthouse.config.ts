@@ -9,6 +9,7 @@ const INCLUDE_PATHS = process.env.INCLUDE_PATHS ? process.env.INCLUDE_PATHS.spli
 export default defineUnlighthouseConfig({
 	site: SITE_URL,
 	scanner: {
+		device: "mobile",
 		samples: 10,
 		throttle: true,
 		dynamicSampling: false,
