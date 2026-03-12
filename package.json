@@ -30,6 +30,6 @@
     }
   },
   "devDependencies": {
-    "unlighthouse": "^0.17.4"
+    "unlighthouse": "^0.17.7"
   }
 }
