@@ -30,6 +30,7 @@
     }
   },
   "devDependencies": {
+    "@lhci/cli": "^0.15.1",
     "unlighthouse": "^0.17.7"
   }
 }
