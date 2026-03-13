@@ -11,7 +11,13 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "unlighthouse:local": "unlighthouse",
-    "unlighthouse:prod": "NODE_ENV=PROD unlighthouse"
+    "unlighthouse:prod": "NODE_ENV=PROD unlighthouse",
+    "lh:tbt": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=tbt lhci collect && pnpm run lh:metrics:tbt",
+    "lh:lcp": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=lcp lhci collect && pnpm run lh:metrics:lcp",
+    "lh:si": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=si lhci collect && pnpm run lh:metrics:si",
+    "lh:metrics:tbt": "cross-env LH_METRIC=tbt node scripts/collect-metrics.js",
+    "lh:metrics:lcp": "cross-env LH_METRIC=lcp node scripts/collect-metrics.js",
+    "lh:metrics:si": "cross-env LH_METRIC=si node scripts/collect-metrics.js"
   },
   "dependencies": {
     "@nuxt/eslint": "1.12.1",
@@ -31,6 +37,7 @@
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
+    "cross-env": "^10.1.0",
     "unlighthouse": "^0.17.7"
   }
 }
