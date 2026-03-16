@@ -26,7 +26,7 @@ if (!selected) {
 }
 
 const urls = selected.routes.map(r => `${baseUrl}${r}`);
-const runs = 5;
+const runs = 3;
 console.log("---- Lighthouse configuration ----");
 console.log("Metric:", metric);
 console.log("Base URL:", baseUrl);
@@ -41,7 +41,7 @@ module.exports = {
 		collect: {
 			url: selected.routes.map(r => `${baseUrl}${r}`),
 
-			numberOfRuns: 2,
+			numberOfRuns: runs,
 
 			settings: {
 				formFactor: "mobile",
