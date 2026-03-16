@@ -14,10 +14,7 @@ const files = fs.readdirSync(`./reports/${metric}`).filter(f => f.endsWith(".rep
 
 const grouped = {};
 
-console.log(files);
-
 for (const file of files) {
-	console.log(`reading ./reports/${metric}/${file}`);
 	const json = JSON.parse(fs.readFileSync(`./reports/${metric}/${file}`, "utf8"));
 
 	const route = new URL(json.requestedUrl).pathname;
@@ -39,5 +36,3 @@ for (const route of Object.keys(grouped)) {
 	console.log(`Median ${auditKey}: ${Math.round(median)}ms`);
 	console.log("");
 }
-
-console.log(files);
