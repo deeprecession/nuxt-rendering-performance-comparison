@@ -12,9 +12,9 @@
     "lint:fix": "eslint . --fix",
     "unlighthouse:local": "unlighthouse",
     "unlighthouse:prod": "NODE_ENV=PROD unlighthouse",
-    "lh:tbt": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=tbt lhci collect && pnpm run lh:metrics:tbt",
-    "lh:lcp": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=lcp lhci collect && pnpm run lh:metrics:lcp",
-    "lh:si": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=si lhci collect && pnpm run lh:metrics:si",
+    "lh:tbt": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=tbt lhci collect && LH_METRIC=tbt lhci upload && pnpm run lh:metrics:tbt",
+    "lh:lcp": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=lcp lhci collect && LH_METRIC=lcp lhci upload && pnpm run lh:metrics:lcp",
+    "lh:si": "cross-env BASE_URL=http://localhost:3000 LH_METRIC=si lhci collect && LH_METRIC=si lhci upload && pnpm run lh:metrics:si",
     "lh:metrics:tbt": "cross-env LH_METRIC=tbt node scripts/collect-metrics.js",
     "lh:metrics:lcp": "cross-env LH_METRIC=lcp node scripts/collect-metrics.js",
     "lh:metrics:si": "cross-env LH_METRIC=si node scripts/collect-metrics.js"

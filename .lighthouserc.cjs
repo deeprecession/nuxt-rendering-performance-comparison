@@ -26,7 +26,7 @@ if (!selected) {
 }
 
 const urls = selected.routes.map(r => `${baseUrl}${r}`);
-const runs = 3;
+const runs = 1;
 console.log("---- Lighthouse configuration ----");
 console.log("Metric:", metric);
 console.log("Base URL:", baseUrl);

@@ -10,14 +10,15 @@ const metricMap = {
 
 const auditKey = metricMap[metric];
 
-const files = fs.readdirSync("./.lighthouseci").filter(f => f.endsWith(".json") && f.startsWith("lhr"));
+const files = fs.readdirSync(`./reports/${metric}`).filter(f => f.endsWith(".report.json"));
 
 const grouped = {};
 
 console.log(files);
 
 for (const file of files) {
-	const json = JSON.parse(fs.readFileSync(`./.lighthouseci/${file}`, "utf8"));
+	console.log(`reading ./reports/${metric}/${file}`);
+	const json = JSON.parse(fs.readFileSync(`./reports/${metric}/${file}`, "utf8"));
 
 	const route = new URL(json.requestedUrl).pathname;
 	const value = json.audits[auditKey].numericValue;
