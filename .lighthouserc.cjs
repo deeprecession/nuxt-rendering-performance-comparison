@@ -45,8 +45,12 @@ module.exports = {
 
 			settings: {
 				formFactor: "mobile",
-				throttlingMethod: "devtools",
+				throttlingMethod: "simulate",
 				onlyAudits: selected.onlyAudits,
+
+				throttling: {
+					cpuSlowdownMultiplier: 2.2,
+				},
 			},
 
 			chromePath: "/usr/bin/brave",
