@@ -3,6 +3,12 @@
 		<ul>
 			<li>
 				<NuxtLink
+					:class="{ 'nav-link--active': isCategoryActive('fcp') }"
+					:to="{ name: 'fcp' }"
+				>First Contentful Paint (FCP)</NuxtLink>
+			</li>
+			<li>
+				<NuxtLink
 					:class="{ 'nav-link--active': isCategoryActive('lcp') }"
 					:to="{ name: 'lcp' }"
 				>Largest Contentful Paint (LCP)</NuxtLink>
@@ -49,6 +55,7 @@ const routeName = computed(() => {
 
 const selectedCategory = computed(() => {
 	const name = routeName.value;
+	if (name.startsWith("fcp")) return "fcp";
 	if (name.startsWith("lcp")) return "lcp";
 	if (name.startsWith("tbt")) return "tbt";
 	if (name.startsWith("si")) return "si";

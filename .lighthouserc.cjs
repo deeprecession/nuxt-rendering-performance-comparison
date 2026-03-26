@@ -7,8 +7,13 @@ const configs = {
 		onlyAudits: ["total-blocking-time"],
 	},
 
-	lcp: {
+	fcp: {
 		routes: ["/lcp/csr", "/lcp/ssr"],
+		onlyAudits: ["first-contentful-paint"],
+	},
+
+	lcp: {
+		routes: ["/fcp/csr", "/fcp/ssr"],
 		onlyAudits: ["largest-contentful-paint"],
 	},
 

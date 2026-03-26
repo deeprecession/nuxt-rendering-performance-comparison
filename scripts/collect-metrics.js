@@ -5,6 +5,7 @@ const metric = process.env.LH_METRIC || "tbt";
 const metricMap = {
 	tbt: "total-blocking-time",
 	lcp: "largest-contentful-paint",
+	fcp: "first-contentful-paint",
 	si: "speed-index",
 };
 
