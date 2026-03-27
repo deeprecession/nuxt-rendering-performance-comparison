@@ -8,12 +8,12 @@ const configs = {
 	},
 
 	fcp: {
-		routes: ["/lcp/csr", "/lcp/ssr"],
+		routes: ["/fcp/csr", "/fcp/ssr"],
 		onlyAudits: ["first-contentful-paint"],
 	},
 
 	lcp: {
-		routes: ["/fcp/csr", "/fcp/ssr"],
+		routes: ["/lcp/csr", "/lcp/ssr"],
 		onlyAudits: ["largest-contentful-paint"],
 	},
 
