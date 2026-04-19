@@ -30,10 +30,12 @@ for (const file of files) {
 
 for (const route of Object.keys(grouped)) {
 	const values = grouped[route].sort((a, b) => a - b);
+	const mean = values.reduce((val, prev) => val + prev) / values.length;
 	const median = values[Math.floor(values.length / 2)];
 
 	console.log(`Route: ${route}`);
 	console.log(`Runs:`, values.map(Math.round).map(v => v + "ms")); // add ms here
 	console.log(`Median ${auditKey}: ${Math.round(median)}ms`);
+	console.log(`Mean ${auditKey}: ${Math.round(mean)}ms`);
 	console.log("");
 }
