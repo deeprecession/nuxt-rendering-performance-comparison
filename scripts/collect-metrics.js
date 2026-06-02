@@ -33,9 +33,17 @@ for (const route of Object.keys(grouped)) {
 	const mean = values.reduce((val, prev) => val + prev) / values.length;
 	const median = values[Math.floor(values.length / 2)];
 
+	const variance = values.reduce(
+		(sum, value) => sum + Math.pow(value - mean, 2),
+		0,
+	) / values.length;
+
+	const stdDev = Math.sqrt(variance);
+
 	console.log(`Route: ${route}`);
 	console.log(`Runs:`, values.map(Math.round).map(v => v + "ms")); // add ms here
 	console.log(`Median ${auditKey}: ${Math.round(median)}ms`);
 	console.log(`Mean ${auditKey}: ${Math.round(mean)}ms`);
+	console.log(`Std Dev ${auditKey}: ${Math.round(stdDev)}ms`);
 	console.log("");
 }
