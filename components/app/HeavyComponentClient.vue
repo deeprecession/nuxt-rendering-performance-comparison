@@ -19,6 +19,12 @@ const props = defineProps<{ computation?: HeavyComputationOptions }>();
 
 const messageClient = ref("");
 
-heavyComputation(props.computation);
-messageClient.value = "content is rendered on the client";
+onMounted(() => {
+	requestAnimationFrame(() => {
+		requestIdleCallback(() => {
+			heavyComputation(props.computation);
+			messageClient.value = "content is rendered on the client";
+		});
+	});
+});
 </script>
