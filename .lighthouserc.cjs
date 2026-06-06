@@ -3,22 +3,22 @@ const metric = process.env.LH_METRIC || "tbt";
 
 const configs = {
 	tbt: {
-		routes: ["/tbt/csr", "/tbt/ssr"],
+		routes: ["/tbt/csr", "/tbt/ssr", "/tbt/ssg", "/tbt/isr"],
 		onlyAudits: ["total-blocking-time"],
 	},
 
 	fcp: {
-		routes: ["/fcp/csr", "/fcp/ssr"],
+		routes: ["/fcp/csr", "/fcp/ssr", "/fcp/ssg", "/fcp/isr"],
 		onlyAudits: ["first-contentful-paint"],
 	},
 
 	lcp: {
-		routes: ["/lcp/csr", "/lcp/ssr"],
+		routes: ["/lcp/csr", "/lcp/ssr", "/lcp/ssg", "/lcp/isr"],
 		onlyAudits: ["largest-contentful-paint"],
 	},
 
 	si: {
-		routes: ["/si/csr", "/si/ssr"],
+		routes: ["/si/csr", "/si/ssr", "/si/ssg", "/si/isr"],
 		onlyAudits: ["speed-index"],
 	},
 };
@@ -50,7 +50,7 @@ module.exports = {
 
 			settings: {
 				formFactor: "mobile",
-				throttlingMethod: "simulate",
+				throttlingMethod: "devtools",
 				onlyAudits: selected.onlyAudits,
 
 				throttling: {
